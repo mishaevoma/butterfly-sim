@@ -1,5 +1,7 @@
 # butterfly-sim
 
+**[Open the live wind tunnel in your browser →](https://mishaevoma.github.io/butterfly-sim/)**
+
 A butterfly flight simulator in plain JavaScript. It models the air with a 3-D unsteady vortex lattice, couples it to the dynamics of the body, and drives both with the measured wingbeat of a monarch. It runs in Node and live in the browser. It has no dependencies; the viewer loads three.js.
 
 [![A monarch's wake: smoke streaklines and vortex filaments](media/poster.jpg)](media/monarch_wake_540p.mp4)
@@ -60,7 +62,7 @@ More detail:
 
 ```sh
 git clone https://github.com/mishaevoma/butterfly-sim && cd butterfly-sim
-python3 -m http.server 8642            # the viewer, at http://localhost:8642/
+python3 -m http.server 8642            # the viewer locally, at http://localhost:8642/ (or use the live link above)
 node --test tests/                     # benchmarks, about 25 s (Node 18+)
 node tools/validate_butterflies.mjs    # regenerates reports/validation.md, about 3 min
 ```

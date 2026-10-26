@@ -1,4 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Butterfly Flight Tunnel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +30,7 @@
     --font-name: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
     --r: 6px;
   }
+  [hidden] { display: none !important; }
   html, body { height: 100%; }
   body { background: var(--bg); color: var(--ink); font: 14px/1.4 var(--font-ui); overflow: hidden; }
   * { box-sizing: border-box; }
@@ -108,6 +113,8 @@
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 </script>
+</head>
+<body>
 
 <div class="app">
   <header class="bar">
@@ -209,3 +216,5 @@
 </div>
 
 <script type="module" src="./viewer/app.js"></script>
+</body>
+</html>
