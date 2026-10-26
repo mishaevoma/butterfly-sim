@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Painted lady: lift over one wingbeat (Zheng et al. kinematics, fitted by eye)">
+<rect width="640" height="300" fill="#fcfcfb"/>
+<text x="56" y="22" font-size="14" font-weight="600" fill="#0b0b0b">Painted lady: lift over one wingbeat (Zheng et al. kinematics, fitted by eye)</text>
+<rect x="56.0" y="40" width="260.2" height="214" fill="#f0efec"/>
+<line x1="56" x2="520" y1="254.0" y2="254.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="254.0" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">-10</text>
+<line x1="56" x2="520" y1="218.3" y2="218.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="218.3" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">-5</text>
+<line x1="56" x2="520" y1="182.7" y2="182.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="182.7" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">0</text>
+<line x1="56" x2="520" y1="147.0" y2="147.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="147.0" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">5</text>
+<line x1="56" x2="520" y1="111.3" y2="111.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="111.3" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">10</text>
+<line x1="56" x2="520" y1="75.7" y2="75.7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="75.7" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">15</text>
+<line x1="56" x2="520" y1="40.0" y2="40.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="40.0" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">20</text>
+<line x1="140.9" x2="140.9" y1="254" y2="258" stroke="#c3c2b7"/><text x="140.9" y="271" font-size="11" fill="#898781" text-anchor="middle">0.2</text>
+<line x1="235.7" x2="235.7" y1="254" y2="258" stroke="#c3c2b7"/><text x="235.7" y="271" font-size="11" fill="#898781" text-anchor="middle">0.4</text>
+<line x1="330.5" x2="330.5" y1="254" y2="258" stroke="#c3c2b7"/><text x="330.5" y="271" font-size="11" fill="#898781" text-anchor="middle">0.6</text>
+<line x1="425.2" x2="425.2" y1="254" y2="258" stroke="#c3c2b7"/><text x="425.2" y="271" font-size="11" fill="#898781" text-anchor="middle">0.8</text>
+<line x1="520.0" x2="520.0" y1="254" y2="258" stroke="#c3c2b7"/><text x="520.0" y="271" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<line x1="56" x2="520" y1="254" y2="254" stroke="#c3c2b7"/>
+<line x1="56" x2="520" y1="182.7" y2="182.7" stroke="#52514e" stroke-width="1" opacity="0.6"/>
+<text x="288" y="292" font-size="12" fill="#52514e" text-anchor="middle">wingbeat phase</text>
+<text x="14" y="147" font-size="12" fill="#52514e" text-anchor="middle" transform="rotate(-90 14 147)">lift (mN)</text>
+<polyline points="56.0,172.0 65.9,169.1 75.7,166.6 85.6,163.5 95.5,159.5 105.4,155.4 115.2,149.1 125.1,139.4 135.0,129.3 144.9,121.4 154.7,113.1 164.6,104.4 174.5,95.5 184.3,86.7 194.2,79.0 204.1,72.4 214.0,68.7 223.8,66.6 233.7,68.2 243.6,72.1 253.4,78.2 263.3,85.9 273.2,95.0 283.1,104.5 292.9,116.4 302.8,138.3 312.7,150.5 322.6,160.2 332.4,167.3 342.3,174.3 352.2,179.8 362.0,187.7 371.9,191.8 381.8,193.7 391.7,198.2 401.5,203.5 411.4,209.2 421.3,217.6 431.1,222.3 441.0,221.8 450.9,218.2 460.8,211.9 470.6,204.6 480.5,197.8 490.4,191.0 500.3,184.8 510.1,179.5 520.0,175.5" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="520.0" cy="175.5" r="5" fill="#fcfcfb"/><circle cx="520.0" cy="175.5" r="3.5" fill="#2a78d6"/>
+<polyline points="56.0,173.4 65.9,170.8 75.7,168.8 85.6,166.3 95.5,162.3 105.4,158.8 115.2,153.7 125.1,147.1 135.0,137.6 144.9,130.8 154.7,123.4 164.6,115.6 174.5,107.6 184.3,99.4 194.2,92.0 204.1,85.9 214.0,81.7 223.8,80.5 233.7,82.5 243.6,88.0 253.4,95.9 263.3,105.8 273.2,116.2 283.1,126.5 292.9,139.0 302.8,155.8 312.7,164.5 322.6,170.6 332.4,175.3 342.3,179.1 352.2,183.1 362.0,186.2 371.9,189.7 381.8,190.9 391.7,193.4 401.5,196.3 411.4,201.1 421.3,208.5 431.1,215.4 441.0,216.7 450.9,214.5 460.8,208.8 470.6,201.1 480.5,194.6 490.4,188.7 500.3,183.6 510.1,179.7 520.0,176.3" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="520.0" cy="176.3" r="5" fill="#fcfcfb"/><circle cx="520.0" cy="176.3" r="3.5" fill="#eb6834"/>
+<polyline points="56.0,168.5 65.9,165.1 75.7,161.3 85.6,157.7 95.5,153.9 105.4,149.2 115.2,142.6 125.1,131.5 135.0,123.4 144.9,114.5 154.7,105.3 164.6,95.8 174.5,86.6 184.3,78.3 194.2,71.5 204.1,66.8 214.0,64.8 223.8,66.1 233.7,70.5 243.6,77.9 253.4,87.5 263.3,98.2 273.2,109.5 283.1,121.4 292.9,138.4 302.8,151.8 312.7,162.0 322.6,171.5 332.4,180.4 342.3,188.4 352.2,193.8 362.0,200.5 371.9,205.4 381.8,210.1 391.7,213.2 401.5,218.0 411.4,226.2 421.3,233.5 431.1,237.2 441.0,235.8 450.9,230.3 460.8,220.2 470.6,209.4 480.5,198.8 490.4,189.4 500.3,181.6 510.1,175.7 520.0,171.8" fill="none" stroke="#1baf7a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="520.0" cy="171.8" r="5" fill="#fcfcfb"/><circle cx="520.0" cy="171.8" r="3.5" fill="#1baf7a"/>
+<line x1="534" x2="550" y1="48" y2="48" stroke="#2a78d6" stroke-width="2"/><text x="556" y="48" font-size="11.5" fill="#52514e" dominant-baseline="middle">Twisted and cambered</text>
+<line x1="534" x2="550" y1="66" y2="66" stroke="#eb6834" stroke-width="2"/><text x="556" y="66" font-size="11.5" fill="#52514e" dominant-baseline="middle">Twist only</text>
+<line x1="534" x2="550" y1="84" y2="84" stroke="#1baf7a" stroke-width="2"/><text x="556" y="84" font-size="11.5" fill="#52514e" dominant-baseline="middle">Flat rigid wing</text>
+</svg>

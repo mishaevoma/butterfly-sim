@@ -1,0 +1,211 @@
+<meta charset="utf-8">
+<title>Butterfly Flight Tunnel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&family=JetBrains+Mono:wght@400;600&family=Saira+Semi+Condensed:wght@400;500;600&display=swap">
+<style>
+  /* Layout: a night wind tunnel. The test section fills the screen; instruments sit at the edges.
+     One look on purpose (smoke is lit against the dark), so the page sets every colour itself. */
+  :root {
+    color-scheme: dark;
+    --bg: #0c1015;          /* tunnel ground */
+    --surface: #131920;     /* instrument panels and chart surface */
+    --surface-2: #19212a;   /* raised controls */
+    --ink: #e9edf1;         /* primary text */
+    --ink-2: #aeb7c1;       /* secondary text */
+    --muted: #7f8a96;       /* axis labels, captions */
+    --hair: #232c36;        /* gridlines, dividers */
+    --axis: #34404d;
+    --band: rgba(233, 237, 241, 0.045); /* downstroke shading */
+    --monarch: #e8781e;     /* the animal; used sparingly in the UI */
+    --series-1: #3987e5;    /* vortex lattice */
+    --series-2: #d95926;    /* quasi-steady */
+    --gamma-pos: #e66767; --gamma-neg: #3987e5; --gamma-mid: #5b6470;
+    --font-ui: "Saira Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --font-data: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-name: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+    --r: 6px;
+  }
+  html, body { height: 100%; }
+  body { background: var(--bg); color: var(--ink); font: 14px/1.4 var(--font-ui); overflow: hidden; }
+  * { box-sizing: border-box; }
+  button, input, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink-2); outline-offset: 2px; }
+
+  .app { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 320px; grid-template-rows: auto minmax(0, 1fr) 176px; grid-template-areas: "bar bar" "stage panel" "charts panel"; }
+  .bar { grid-area: bar; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 1px solid var(--hair); background: var(--surface); }
+  .name { display: flex; align-items: baseline; gap: 10px; min-width: 0; margin-right: auto; }
+  .name h1 { margin: 0; font: 600 17px/1.1 var(--font-ui); letter-spacing: 0.02em; text-wrap: balance; }
+  .name .latin { font: italic 500 16px/1 var(--font-name); color: var(--ink-2); white-space: nowrap; }
+  .name .tag { font: 500 11px/1 var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: var(--r); overflow: hidden; }
+  .seg button { border: 0; background: transparent; padding: 5px 11px; cursor: pointer; color: var(--ink-2); font-size: 13px; letter-spacing: 0.02em; }
+  .seg button + button { border-left: 1px solid var(--axis); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .transport { display: inline-flex; gap: 6px; }
+  .btn { border: 1px solid var(--axis); background: var(--surface-2); border-radius: var(--r); padding: 5px 11px; cursor: pointer; font-size: 13px; }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--monarch); border-color: var(--monarch); color: #170c03; font-weight: 600; min-width: 74px; }
+
+  .stage { grid-area: stage; position: relative; min-width: 0; min-height: 0; }
+  #view { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  .hud { position: absolute; top: 12px; left: max(12px, env(safe-area-inset-left, 0px)); display: grid; grid-template-columns: repeat(4, auto); gap: 8px 18px; padding: 10px 14px; background: rgba(19, 25, 32, 0.78); border: 1px solid var(--hair); border-radius: var(--r); backdrop-filter: blur(6px); pointer-events: none; }
+  .stat { display: grid; gap: 1px; }
+  .stat .k { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .stat .v { font: 600 17px/1.1 var(--font-data); color: var(--ink); white-space: nowrap; }
+  .stat .v small { font: 400 11px var(--font-data); color: var(--ink-2); margin-left: 2px; }
+  .views { position: absolute; right: 12px; top: 12px; display: flex; gap: 6px; }
+  .views .btn { padding: 4px 9px; font-size: 12px; background: rgba(25, 33, 42, 0.8); }
+  .legend3d { position: absolute; left: max(12px, env(safe-area-inset-left, 0px)); bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: var(--ink-2); background: rgba(19, 25, 32, 0.72); border: 1px solid var(--hair); border-radius: var(--r); padding: 6px 10px; }
+  .legend3d i { display: inline-block; width: 16px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
+  .status { position: absolute; right: 12px; bottom: 12px; font: 12px var(--font-data); color: var(--muted); background: rgba(19, 25, 32, 0.72); border: 1px solid var(--hair); border-radius: var(--r); padding: 6px 10px; }
+  .toast { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--surface); border: 1px solid var(--axis); border-radius: var(--r); padding: 12px 16px; color: var(--ink-2); max-width: 420px; text-align: center; }
+
+  .panel { grid-area: panel; overflow-y: auto; border-left: 1px solid var(--hair); background: var(--surface); padding-block: 6px 24px; padding-left: 16px; padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .group { border-top: 1px solid var(--hair); padding-block: 12px; display: grid; gap: 9px; }
+  .group:first-child { border-top: 0; }
+  .group h2 { margin: 0; font: 600 11px/1 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; }
+  .row label { font-size: 13.5px; color: var(--ink); }
+  .row output { font: 12.5px var(--font-data); color: var(--ink-2); font-variant-numeric: tabular-nums; min-width: 64px; text-align: right; }
+  .row input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--ink-2); height: 18px; }
+  .row select { background: var(--surface-2); border: 1px solid var(--axis); border-radius: var(--r); padding: 4px 6px; }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 13.5px; cursor: pointer; }
+  .check input { accent-color: var(--monarch); width: 15px; height: 15px; }
+  .note { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+  .note b { color: var(--ink); font-weight: 600; }
+  .gusts { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .charts { grid-area: charts; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--hair); background: var(--surface); min-width: 0; }
+  .chart { position: relative; margin: 0; padding: 8px 12px 6px; display: grid; grid-template-rows: auto minmax(0, 1fr); min-width: 0; }
+  .chart + .chart { border-left: 1px solid var(--hair); }
+  figcaption { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+  .chart-title { color: var(--ink); font-weight: 600; letter-spacing: 0.02em; }
+  .chart-unit { color: var(--muted); font: 11px var(--font-data); }
+  .chart-legend { margin-left: auto; display: inline-flex; gap: 10px; color: var(--ink-2); font-size: 11.5px; }
+  .chart-legend .key { display: inline-flex; align-items: center; gap: 5px; }
+  .chart-legend i { width: 14px; height: 2px; border-radius: 1px; display: inline-block; }
+  .chart canvas { width: 100%; height: 100%; display: block; }
+  .chart-tip { position: absolute; top: 26px; min-width: 140px; background: var(--surface-2); border: 1px solid var(--axis); border-radius: var(--r); padding: 6px 8px; font-size: 11.5px; pointer-events: none; display: grid; gap: 3px; z-index: 2; }
+  .tip-head { color: var(--muted); font: 10.5px var(--font-data); }
+  .tip-row { display: grid; grid-template-columns: 14px auto 1fr; gap: 6px; align-items: center; }
+  .tip-row i { height: 2px; border-radius: 1px; }
+  .tip-row b { font: 600 12px var(--font-data); color: var(--ink); }
+  .tip-row span { color: var(--ink-2); }
+
+  @media (max-width: 860px) {
+    body { overflow: auto; }
+    .app { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 62vh auto auto; grid-template-areas: "bar" "stage" "charts" "panel"; }
+    .charts { grid-template-columns: minmax(0, 1fr); }
+    .chart { height: 150px; }
+    .chart + .chart { border-left: 0; border-top: 1px solid var(--hair); }
+    .panel { border-left: 0; border-top: 1px solid var(--hair); padding-left: max(16px, env(safe-area-inset-left, 0px)); }
+    .hud { grid-template-columns: repeat(2, auto); right: max(12px, env(safe-area-inset-right, 0px)); top: auto; bottom: 52px; }
+    .views { top: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+
+<div class="app">
+  <header class="bar">
+    <div class="name"><h1 id="sp-name">Monarch</h1><span class="latin" id="sp-latin">Danaus plexippus</span><span class="tag" id="sp-tag">unsteady vortex lattice</span></div>
+    <div class="seg" role="group" aria-label="Flight mode" id="seg-mode">
+      <button type="button" data-v="tethered" aria-pressed="true" title="Speed and body pitch prescribed, like a wind-tunnel run with the measured body motion">Wind tunnel</button>
+      <button type="button" data-v="driven" aria-pressed="false" title="The body moves under its own forces; its pitch follows the measured history">Free flight</button>
+      <button type="button" data-v="free" aria-pressed="false" title="Pitch is free too, held only by the flight controller (experimental)">Fully free</button>
+    </div>
+    <div class="seg" role="group" aria-label="Aerodynamic model" id="seg-aero">
+      <button type="button" data-v="uvlm" aria-pressed="true">Vortex lattice</button>
+      <button type="button" data-v="qs" aria-pressed="false">Quasi-steady</button>
+    </div>
+    <div class="transport">
+      <button type="button" class="btn primary" id="btn-run">Run</button>
+      <button type="button" class="btn" id="btn-step" title="Advance one time step">Step</button>
+      <button type="button" class="btn" id="btn-reset">Restart</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <canvas id="view" aria-label="Three-dimensional view of the butterfly and its wake"></canvas>
+    <div class="hud" aria-live="off">
+      <div class="stat"><span class="k">Lift / weight</span><span class="v" id="h-lw">–</span></div>
+      <div class="stat"><span class="k">Thrust / weight</span><span class="v" id="h-tw">–</span></div>
+      <div class="stat"><span class="k">Body pitch</span><span class="v" id="h-pitch">–</span></div>
+      <div class="stat"><span class="k">Speed</span><span class="v" id="h-speed">–</span></div>
+      <div class="stat"><span class="k">Reynolds</span><span class="v" id="h-re">–</span></div>
+      <div class="stat"><span class="k">Reduced freq. k</span><span class="v" id="h-k">–</span></div>
+      <div class="stat"><span class="k">Advance ratio J</span><span class="v" id="h-j">–</span></div>
+      <div class="stat"><span class="k">Flight power</span><span class="v" id="h-p">–</span></div>
+    </div>
+    <div class="views" role="group" aria-label="Camera">
+      <button type="button" class="btn" data-view="side">Side</button>
+      <button type="button" class="btn" data-view="front">Front</button>
+      <button type="button" class="btn" data-view="top">Top</button>
+      <button type="button" class="btn" data-view="rear">Rear</button>
+    </div>
+    <div class="legend3d" id="legend3d">
+      <span><i style="background: var(--gamma-pos)"></i>Wake vorticity +</span>
+      <span><i style="background: var(--gamma-neg)"></i>Wake vorticity −</span>
+      <span><i style="background: #f3efe6"></i>Air force</span>
+      <span><i style="background: #c58a52"></i>Centre of mass path</span>
+    </div>
+    <div class="status" id="status">starting…</div>
+  </main>
+
+  <aside class="panel" aria-label="Controls">
+    <section class="group">
+      <h2>Animal</h2>
+      <div class="row"><label for="in-species">Species</label><select id="in-species"></select></div>
+      <p class="note" id="sp-note"></p>
+    </section>
+    <section class="group">
+      <h2>Air model</h2>
+      <label class="check"><input type="checkbox" id="in-interact" checked> Wings see each other (clap and fling)</label>
+      <label class="check"><input type="checkbox" id="in-lev" checked> Leading-edge vortex lift (suction analogy)</label>
+      <label class="check"><input type="checkbox" id="in-compare"> Overlay the quasi-steady model</label>
+    </section>
+    <section class="group" id="g-wing">
+      <h2>Wingbeat</h2>
+    </section>
+    <section class="group" id="g-body">
+      <h2>Body</h2>
+    </section>
+    <section class="group" id="g-free">
+      <h2>Free flight</h2>
+      <label class="check"><input type="checkbox" id="in-control" checked> Flight controller on</label>
+      <div class="gusts">
+        <button type="button" class="btn" id="gust-up">Updraft</button>
+        <button type="button" class="btn" id="gust-down">Downdraft</button>
+        <button type="button" class="btn" id="gust-head">Headwind</button>
+      </div>
+      <p class="note"><b>Free flight</b> lets the body move under its own forces while its pitch follows the measured history, as in Fei & Yang's simulations. The controller trims stroke amplitude for climb rate and stroke-plane tilt for speed.</p>
+      <p class="note"><b>Fully free</b> frees the pitch as well. Without help the body tumbles within about one wingbeat, as the Kyoto group found for <i>Parantica sita</i>; the controller then also steers mean sweep, and holds only some species.</p>
+      <p class="note">A gust lasts one wingbeat and moves the air at 0.8 m/s.</p>
+    </section>
+    <section class="group" id="g-view">
+      <h2>View</h2>
+      <div class="row"><label for="in-wake">Wake</label><select id="in-wake"><option value="filaments">Vortex filaments</option><option value="sheet">Vortex sheet</option><option value="both">Both</option><option value="off">Hidden</option></select></div>
+      <label class="check"><input type="checkbox" id="in-smoke"> Smoke wire (tracer particles)</label>
+      <label class="check"><input type="checkbox" id="in-loads"> Wing load (Δp) instead of pattern</label>
+      <label class="check"><input type="checkbox" id="in-arrows" checked> Force arrow</label>
+      <label class="check"><input type="checkbox" id="in-trail" checked> Centre-of-mass path</label>
+      <label class="check"><input type="checkbox" id="in-follow" checked> Follow the butterfly</label>
+    </section>
+    <section class="group" id="g-res">
+      <h2>Resolution</h2>
+    </section>
+    <section class="group">
+      <h2>What this model sees</h2>
+      <p class="note"><b>Sees:</b> the wake rolling up behind each stroke, the two wings pulling on each other near the clap, unsteady circulation and added mass, and how body motion feeds back into the air.</p>
+      <p class="note"><b>Approximates:</b> leading-edge vortex lift, through the Polhamus suction analogy; skin friction, as a fixed drag coefficient; wing flexibility, as prescribed twist.</p>
+      <p class="note"><b>Blind to:</b> where the flow actually separates, viscous decay of the wake beyond a core-growth law, and anything at the scale of the wing scales.</p>
+    </section>
+  </aside>
+
+  <section class="charts" id="charts" aria-label="Force and pitch over the last three wingbeats"></section>
+</div>
+
+<script type="module" src="./viewer/app.js"></script>

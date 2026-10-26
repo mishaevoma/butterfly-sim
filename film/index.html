@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Monarch Wake</title>
+<style>
+  html, body { margin: 0; background: #07090c; overflow: hidden; }
+  #stage { position: relative; }
+  canvas { display: block; }
+  #fade { position: absolute; inset: 0; background: #000; opacity: 1; pointer-events: none; }
+  .cap { position: absolute; left: 6.2%; bottom: 9%; color: #e9edf1; opacity: 0; pointer-events: none; letter-spacing: 0.02em; text-shadow: 0 0 18px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.9); }
+  .cap .name { font: italic 500 46px/1.15 "Bodoni 72", Didot, "Bodoni Moda", Georgia, serif; }
+  .cap .line { font: 400 22px/1.4 "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", Arial, sans-serif; color: #b9c3cd; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; }
+  .cap .body { font: 400 30px/1.35 "Avenir Next", "Helvetica Neue", Arial, sans-serif; max-width: 30em; }
+  .key { display: inline-block; width: 26px; height: 3px; vertical-align: middle; margin: 0 8px 4px 0; border-radius: 2px; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage">
+  <canvas id="view"></canvas>
+  <div class="cap" id="c1"><div class="name">Danaus plexippus</div><div class="line">its measured wingbeat · twenty times slower than life</div></div>
+  <div class="cap" id="c2"><div class="body">Smoke shows the air. <span class="key" style="background:#e66767"></span><span class="key" style="background:#3987e5"></span>the vortices each stroke leaves behind.</div></div>
+  <div class="cap" id="c3"><div class="line">simulated · unsteady vortex lattice with a free wake</div></div>
+  <div id="fade"></div>
+</div>
+<script type="module" src="./film.js"></script>
+</body>
+</html>

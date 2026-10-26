@@ -1,0 +1,7 @@
+# Film: recorded simulation frames and full-quality renders (remade by tools/film_record.mjs and tools/render_film.mjs)
+film/data/
+film/out/*.mp4
+film/out/stills/
+# local preview server state, OS files
+.DS_Store
+node_modules/

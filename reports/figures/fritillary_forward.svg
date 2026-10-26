@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Fritillary: forward force, with and without the other wing">
+<rect width="640" height="300" fill="#fcfcfb"/>
+<text x="56" y="22" font-size="14" font-weight="600" fill="#0b0b0b">Fritillary: forward force, with and without the other wing</text>
+<rect x="56.0" y="40" width="255.0" height="214" fill="#f0efec"/>
+<line x1="56" x2="520" y1="254.0" y2="254.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="254.0" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">-2</text>
+<line x1="56" x2="520" y1="211.2" y2="211.2" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="211.2" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">-1</text>
+<line x1="56" x2="520" y1="168.4" y2="168.4" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="168.4" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">0</text>
+<line x1="56" x2="520" y1="125.6" y2="125.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="125.6" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">1</text>
+<line x1="56" x2="520" y1="82.8" y2="82.8" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="82.8" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">2</text>
+<line x1="56" x2="520" y1="40.0" y2="40.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48" y="40.0" font-size="11" fill="#898781" text-anchor="end" dominant-baseline="middle">3</text>
+<line x1="140.9" x2="140.9" y1="254" y2="258" stroke="#c3c2b7"/><text x="140.9" y="271" font-size="11" fill="#898781" text-anchor="middle">0.2</text>
+<line x1="235.7" x2="235.7" y1="254" y2="258" stroke="#c3c2b7"/><text x="235.7" y="271" font-size="11" fill="#898781" text-anchor="middle">0.4</text>
+<line x1="330.5" x2="330.5" y1="254" y2="258" stroke="#c3c2b7"/><text x="330.5" y="271" font-size="11" fill="#898781" text-anchor="middle">0.6</text>
+<line x1="425.2" x2="425.2" y1="254" y2="258" stroke="#c3c2b7"/><text x="425.2" y="271" font-size="11" fill="#898781" text-anchor="middle">0.8</text>
+<line x1="520.0" x2="520.0" y1="254" y2="258" stroke="#c3c2b7"/><text x="520.0" y="271" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<line x1="56" x2="520" y1="254" y2="254" stroke="#c3c2b7"/>
+<line x1="56" x2="520" y1="168.4" y2="168.4" stroke="#52514e" stroke-width="1" opacity="0.6"/>
+<text x="288" y="292" font-size="12" fill="#52514e" text-anchor="middle">wingbeat phase (the clap is at 0 and 1)</text>
+<text x="14" y="147" font-size="12" fill="#52514e" text-anchor="middle" transform="rotate(-90 14 147)">force / body weight</text>
+<polyline points="56.0,197.2 65.9,191.2 75.7,181.5 85.6,174.1 95.5,164.5 105.4,171.2 115.2,169.1 125.1,174.4 135.0,177.2 144.9,166.6 154.7,161.8 164.6,165.0 174.5,161.6 184.3,156.9 194.2,149.4 204.1,136.8 214.0,120.8 223.8,106.9 233.7,101.5 243.6,108.7 253.4,131.5 263.3,163.8 273.2,194.2 283.1,214.0 292.9,223.7 302.8,227.8 312.7,231.1 322.6,232.8 332.4,232.1 342.3,227.7 352.2,219.3 362.0,208.2 371.9,195.2 381.8,185.3 391.7,182.8 401.5,184.0 411.4,184.5 421.3,178.9 431.1,162.3 441.0,132.2 450.9,93.0 460.8,64.0 470.6,67.7 480.5,108.6 490.4,135.4 500.3,129.2 510.1,191.4 520.0,198.3" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="520.0" cy="198.3" r="5" fill="#fcfcfb"/><circle cx="520.0" cy="198.3" r="3.5" fill="#2a78d6"/>
+<polyline points="56.0,197.2 65.9,189.9 75.7,180.8 85.6,173.3 95.5,165.6 105.4,170.3 115.2,170.5 125.1,174.3 135.0,176.4 144.9,170.1 154.7,164.9 164.6,165.2 174.5,161.4 184.3,157.1 194.2,150.2 204.1,138.0 214.0,122.2 223.8,108.7 233.7,103.6 243.6,110.8 253.4,132.9 263.3,164.0 273.2,192.8 283.1,211.1 292.9,219.1 302.8,221.7 312.7,223.4 322.6,224.3 332.4,223.1 342.3,218.7 352.2,210.9 362.0,200.4 371.9,187.1 381.8,178.0 391.7,175.8 401.5,177.1 411.4,177.6 421.3,171.9 431.1,155.9 441.0,127.1 450.9,92.0 460.8,63.8 470.6,68.0 480.5,111.3 490.4,176.7 500.3,173.8 510.1,204.6 520.0,202.2" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="520.0" cy="202.2" r="5" fill="#fcfcfb"/><circle cx="520.0" cy="202.2" r="3.5" fill="#eb6834"/>
+<line x1="534" x2="550" y1="48" y2="48" stroke="#2a78d6" stroke-width="2"/><text x="556" y="48" font-size="11.5" fill="#52514e" dominant-baseline="middle">Both wings (clap and fling)</text>
+<line x1="534" x2="550" y1="66" y2="66" stroke="#eb6834" stroke-width="2"/><text x="556" y="66" font-size="11.5" fill="#52514e" dominant-baseline="middle">One wing alone</text>
+</svg>
